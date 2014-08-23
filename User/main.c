@@ -7,17 +7,14 @@ static OS_STK startup_task_stk[STARTUP_TASK_STK_SIZE];
 static OS_STK task1_stk[TASK1_STK_SIZE];
 static OS_STK task2_stk[TASK2_STK_SIZE];
 
-static void systick_init(void)
-{
+static void systick_init(void){
 	RCC_ClocksTypeDef rcc_clocks;
 	RCC_GetClocksFreq(&rcc_clocks);
 	SysTick_Config(rcc_clocks.HCLK_Frequency / OS_TICKS_PER_SEC);
 }
 
-static void task1(void *p_arg)
-{
-	for (;;)
-	{
+static void task1(void *p_arg){
+	for (;;){
 		led_on(LED_0);
 		OSTimeDly(500);
 		led_off(LED_0);
@@ -25,10 +22,8 @@ static void task1(void *p_arg)
 	}
 }
 
-static void task2(void *p_arg)
-{
-	for (;;)
-	{
+static void task2(void *p_arg){
+	for (;;){
 		led_on(LED_1);
 		OSTimeDly(700);
 		led_off(LED_1);
@@ -37,8 +32,7 @@ static void task2(void *p_arg)
 }
 
 
-static void startup_task(void *p_arg)
-{
+static void startup_task(void *p_arg){
 	INT8U err;
 	systick_init();     /* Initialize the SysTick. */
 
@@ -59,8 +53,7 @@ static void startup_task(void *p_arg)
 
 
 
-int main(void)
-{
+int main(void){
 	led_init();
 	OSInit();
 	OSTaskCreate(startup_task, (void *)0,
