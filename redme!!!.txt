@@ -1,0 +1,9 @@
+UCOS_ii文件夹下文件copy自UCOS官方下载的文件
+  ..\UCOS_ii\Port文件夹下文件为移植时候修改
+  ..\UCOS_ii\Src文件夹下文件为只读，无需修改。
+\Libraries下文件来自STM32官方固件库3.5版本。
+  ..\Libraries\CMSIS\startup为启动文件
+  ..\Libraries\CMSIS下文件为Cortex Microcontroller Software Interface Standard，是Cortex系列处理器硬件抽象层。
+  ..\Libraries\FWLib下文件为STM32的标准库
+
+移植过程参考野火和lbl1234，具体可见我的为知笔记的网页笔记。
